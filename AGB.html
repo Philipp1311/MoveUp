@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>AGB – MoveUp</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+
+  <style>
+    :root {
+      --purple-main: rgb(102, 34, 161);
+      --purple-dark: rgb(84, 32, 130);
+      --purple-deep: rgb(41, 24, 56);
+      --accent: rgb(164, 195, 28);
+    }
+
+    * { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--purple-deep);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    #header {
+      background-color: var(--purple-main);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.6rem 1.2rem;
+    }
+
+    .navbar-brand { color: white !important; text-decoration: none; }
+    .navbar-brand:hover { color: white !important; }
+
+    .nav-link-custom {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-link-custom::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .nav-link-custom:focus,
+    .nav-link-custom:focus-visible,
+    .nav-link-custom:active { color: white; outline: none; box-shadow: none; }
+    .nav-link-custom:hover { color: white; }
+    .nav-link-custom:hover::after { width: 100%; }
+
+    .navbar-toggler { border: none; box-shadow: none; }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      30%       { transform: translateY(-8px); }
+      60%       { transform: translateY(-4px); }
+      80%       { transform: translateY(-6px); }
+    }
+    .logo-move { display: inline-block; transition: color 0.2s; color: white; }
+    .navbar-brand:hover .logo-move { animation: bounce 0.6s ease; color: var(--accent); }
+
+    /* ─── HERO BANNER ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-main) 60%, var(--purple-dark) 100%);
+      padding: 5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(164,195,28,0.07);
+      pointer-events: none;
+    }
+    .page-hero-label {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--purple-deep);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .page-hero h1 span { color: var(--accent); }
+    .page-hero p {
+      opacity: 0.75;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-top: 0.8rem;
+    }
+    .last-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 1.2rem;
+    }
+
+    /* ─── INHALTSVERZEICHNIS ─── */
+    .toc-card {
+      background: rgba(102,34,161,0.25);
+      border: 1px solid rgba(102,34,161,0.5);
+      border-radius: 20px;
+      padding: 1.8rem;
+      position: sticky;
+      top: 90px;
+    }
+    .toc-card h6 {
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+    .toc-link:last-child { border-bottom: none; }
+    .toc-link:hover { color: var(--accent); }
+    .toc-num {
+      background: rgba(164,195,28,0.15);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ─── CONTENT ─── */
+    .content-wrap { padding: 3rem 0 5rem; }
+
+    .agb-section {
+      background: rgba(102,34,161,0.15);
+      border: 1px solid rgba(102,34,161,0.35);
+      border-radius: 20px;
+      padding: 2rem 2rem 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.3s;
+    }
+    .agb-section:hover { border-color: rgba(164,195,28,0.4); }
+
+    .agb-section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .agb-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .agb-section h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .agb-section h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 1.2rem 0 0.5rem;
+    }
+    .agb-section p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 0.5rem;
+    }
+    .agb-section ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0.8rem;
+    }
+    .agb-section ul li {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 0.25rem;
+    }
+    .agb-section a { color: var(--accent); text-decoration: none; }
+    .agb-section a:hover { text-decoration: underline; }
+
+    .highlight-box {
+      background: rgba(164,195,28,0.1);
+      border: 1px solid rgba(164,195,28,0.3);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-top: 1rem;
+    }
+    .highlight-box p { color: rgba(255,255,255,0.9); margin: 0; font-size: 0.88rem; }
+
+    .abo-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.88rem;
+      margin-top: 1rem;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .abo-table th {
+      background: rgba(102,34,161,0.5);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+    .abo-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+    }
+    .abo-table tr:last-child td { border-bottom: none; }
+    .abo-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .abo-table td:first-child { font-weight: 600; color: white; }
+
+    /* ─── BACK BUTTON ─── */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.25);
+      color: white;
+      padding: 0.55rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── FOOTER ─── */
+    #footer { background-color: var(--purple-dark); padding: 2rem 1rem; }
+    .footer-link { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-link:hover { color: var(--accent); }
+
+    /* ─── SCROLL-TO-TOP ─── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 2rem; right: 1.5rem;
+      width: 3.2rem; height: 3.2rem;
+      background: var(--accent);
+      border: none; border-radius: 50%;
+      cursor: pointer; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      opacity: 0; transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+    }
+    #scrollTopBtn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    #scrollTopBtn:hover { box-shadow: 0 8px 28px rgba(164,195,28,0.45); transform: translateY(-3px); }
+    #scrollTopBtn svg { width: 1.3rem; height: 1.3rem; stroke: var(--purple-deep); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── FADE-IN ─── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.5s, transform 0.5s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 767px) {
+      .toc-card { position: static; margin-bottom: 2rem; }
+      .agb-section { padding: 1.5rem 1.2rem 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header id="header">
+    <nav class="navbar navbar-expand-md p-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/MoveUp/index.html">
+          <span style="font-size:1.6rem; font-weight:900; letter-spacing:-0.03em;">
+            <span class="logo-move">Move</span><span style="color:var(--accent)">Up</span>
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto gap-2 py-3 py-md-0">
+            <li class="nav-item"><a href="index.html#home" class="nav-link nav-link-custom">Home</a></li>
+            <li class="nav-item"><a href="index.html#entdecken" class="nav-link nav-link-custom">Entdecken</a></li>
+            <li class="nav-item"><a href="index.html#rechner" class="nav-link nav-link-custom">Fitness-Rechner</a></li>
+            <li class="nav-item"><a href="index.html#preise" class="nav-link nav-link-custom">Preise</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════ SCROLL-TO-TOP ══════════ -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- ══════════ HERO BANNER ══════════ -->
+  <div class="page-hero">
+    <div class="container">
+      <a href="/MoveUp/index.html" class="btn-back mb-4 d-inline-flex">&#8592; Zurück zur Website</a>
+      <div class="page-hero-label">Rechtliches</div>
+      <h1>Allgemeine <span>Geschäftsbedingungen</span></h1>
+      <p>Bitte lies unsere AGB sorgfältig durch, bevor du MoveUp nutzt. Sie regeln das Vertragsverhältnis zwischen dir und der MoveUp GmbH.</p>
+      <div class="last-updated">Stand: Mai 2025</div>
+    </div>
+  </div>
+
+  <!-- ══════════ HAUPTINHALT ══════════ -->
+  <div class="content-wrap">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- ── INHALTSVERZEICHNIS ── -->
+        <div class="col-12 col-lg-3 order-lg-last">
+          <div class="toc-card fade-in">
+            <h6>Inhalt</h6>
+            <a href="#s1"  class="toc-link"><span class="toc-num">1</span> Geltungsbereich</a>
+            <a href="#s2"  class="toc-link"><span class="toc-num">2</span> Vertragsschluss</a>
+            <a href="#s3"  class="toc-link"><span class="toc-num">3</span> Leistungen</a>
+            <a href="#s4"  class="toc-link"><span class="toc-num">4</span> Abo-Modelle & Preise</a>
+            <a href="#s5"  class="toc-link"><span class="toc-num">5</span> Zahlung</a>
+            <a href="#s6"  class="toc-link"><span class="toc-num">6</span> Kündigung</a>
+            <a href="#s7"  class="toc-link"><span class="toc-num">7</span> Widerrufsrecht</a>
+            <a href="#s8"  class="toc-link"><span class="toc-num">8</span> Nutzungspflichten</a>
+            <a href="#s9"  class="toc-link"><span class="toc-num">9</span> Haftung</a>
+            <a href="#s10" class="toc-link"><span class="toc-num">10</span> Änderungen</a>
+            <a href="#s11" class="toc-link"><span class="toc-num">11</span> Schlussbestimmungen</a>
+          </div>
+        </div>
+
+        <!-- ── SECTIONS ── -->
+        <div class="col-12 col-lg-9">
+
+          <!-- 1. Geltungsbereich -->
+          <div class="agb-section fade-in" id="s1">
+            <div class="agb-section-header">
+              <span class="agb-icon">📌</span>
+              <h2>§ 1 Geltungsbereich</h2>
+            </div>
+            <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen der MoveUp GmbH (nachfolgend „MoveUp") und ihren Nutzer:innen (nachfolgend „Nutzer:in") über die Nutzung der MoveUp-App und -Website.</p>
+            <p>Abweichende Bedingungen des Nutzers werden nicht anerkannt, es sei denn, MoveUp stimmt ihrer Geltung ausdrücklich schriftlich zu.</p>
+            <div class="highlight-box">
+              <p>📍 MoveUp GmbH · Königstraße 1 · 70173 Stuttgart · info@moveup.de</p>
+            </div>
+          </div>
+
+          <!-- 2. Vertragsschluss -->
+          <div class="agb-section fade-in" id="s2">
+            <div class="agb-section-header">
+              <span class="agb-icon">🤝</span>
+              <h2>§ 2 Vertragsschluss & Registrierung</h2>
+            </div>
+            <p>Ein Vertrag kommt zustande, wenn der Nutzer sich auf der MoveUp-Website oder in der App registriert und diese AGB sowie die Datenschutzerklärung akzeptiert.</p>
+
+            <h3>Voraussetzungen</h3>
+            <ul>
+              <li>Mindestalter: 16 Jahre (unter 18 Jahren ist die Zustimmung eines Erziehungsberechtigten erforderlich)</li>
+              <li>Vollständige und wahrheitsgemäße Angabe der Registrierungsdaten</li>
+              <li>Akzeptanz dieser AGB und der Datenschutzerklärung</li>
+              <li>Gültige E-Mail-Adresse</li>
+            </ul>
+            <p>Jeder Nutzer darf nur ein Konto anlegen. Die Zugangsdaten sind vertraulich zu behandeln und dürfen nicht an Dritte weitergegeben werden.</p>
+          </div>
+
+          <!-- 3. Leistungen -->
+          <div class="agb-section fade-in" id="s3">
+            <div class="agb-section-header">
+              <span class="agb-icon">⚡</span>
+              <h2>§ 3 Leistungen von MoveUp</h2>
+            </div>
+            <p>MoveUp stellt je nach gewähltem Abo-Modell folgende digitale Inhalte und Dienste bereit:</p>
+            <ul>
+              <li>Kurze Workout-Videos und Trainingspläne</li>
+              <li>Ernährungs- und Lifestyle-Inhalte</li>
+              <li>Motivations-Challenges und Community-Funktionen</li>
+              <li>Persönlichen Fitness-Rechner (BMI, Kalorienbedarf)</li>
+              <li>Fortschritts-Tracking und Statistiken (ab Premium)</li>
+              <li>1:1 Coaching-Sessions (Premium Plus)</li>
+            </ul>
+            <p>MoveUp behält sich vor, den Funktionsumfang jederzeit anzupassen, zu erweitern oder einzelne Funktionen zu entfernen, sofern dies für den Nutzer zumutbar ist. Bei wesentlichen Einschränkungen wird der Nutzer rechtzeitig informiert.</p>
+            <div class="highlight-box">
+              <p>⚠️ Die MoveUp-Inhalte ersetzen keine medizinische, therapeutische oder ernährungswissenschaftliche Beratung.</p>
+            </div>
+          </div>
+
+          <!-- 4. Abo-Modelle -->
+          <div class="agb-section fade-in" id="s4">
+            <div class="agb-section-header">
+              <span class="agb-icon">💳</span>
+              <h2>§ 4 Abo-Modelle & Preise</h2>
+            </div>
+            <p>MoveUp bietet folgende Abo-Modelle an. Alle Preise verstehen sich inkl. gesetzlicher MwSt.:</p>
+
+            <table class="abo-table">
+              <thead>
+                <tr>
+                  <th>Modell</th>
+                  <th>Preis / Monat</th>
+                  <th>Laufzeit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>🌱 Basic</td>
+                  <td>Kostenlos</td>
+                  <td>Unbegrenzt</td>
+                </tr>
+                <tr>
+                  <td>⚡ Premium</td>
+                  <td>19,99 €</td>
+                  <td>Monatlich kündbar</td>
+                </tr>
+                <tr>
+                  <td>⚡ Premium (jährlich)</td>
+                  <td>15,99 €</td>
+                  <td>12 Monate (191,88 €/Jahr)</td>
+                </tr>
+                <tr>
+                  <td>🏆 Premium Plus</td>
+                  <td>49,99 €</td>
+                  <td>Monatlich kündbar</td>
+                </tr>
+                <tr>
+                  <td>🏆 Premium Plus (jährlich)</td>
+                  <td>39,99 €</td>
+                  <td>12 Monate (479,88 €/Jahr)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="mt-3">MoveUp behält sich vor, Preise mit einer Ankündigungsfrist von mindestens 30 Tagen anzupassen. Bestehende Verträge bleiben bis zum Ende der laufenden Periode unverändert.</p>
+          </div>
+
+          <!-- 5. Zahlung -->
+          <div class="agb-section fade-in" id="s5">
+            <div class="agb-section-header">
+              <span class="agb-icon">💰</span>
+              <h2>§ 5 Zahlung & Abrechnung</h2>
+            </div>
+            <p>Die Abrechnung erfolgt im Voraus zu Beginn jedes Abrechnungszeitraums. Akzeptierte Zahlungsmethoden:</p>
+            <ul>
+              <li>Kreditkarte (Visa, Mastercard, American Express)</li>
+              <li>PayPal</li>
+              <li>Google Pay / Apple Pay</li>
+              <li>SEPA-Lastschrift</li>
+            </ul>
+            <p>Bei fehlgeschlagener Zahlung ist MoveUp berechtigt, den Zugang zu Premium-Funktionen vorübergehend zu sperren, bis die ausstehende Zahlung beglichen wurde.</p>
+
+            <h3>Automatische Verlängerung</h3>
+            <p>Abonnements verlängern sich automatisch um den gewählten Zeitraum, sofern sie nicht rechtzeitig vor Ablauf gekündigt werden.</p>
+          </div>
+
+          <!-- 6. Kündigung -->
+          <div class="agb-section fade-in" id="s6">
+            <div class="agb-section-header">
+              <span class="agb-icon">📅</span>
+              <h2>§ 6 Laufzeit & Kündigung</h2>
+            </div>
+
+            <h3>Ordentliche Kündigung</h3>
+            <p>Monatliche Abos können jederzeit zum Ende des laufenden Abrechnungsmonats gekündigt werden. Jahresabos können zum Ende des Vertragsjahres gekündigt werden. Die Kündigung erfolgt direkt in der App unter <strong>Einstellungen → Abo → Kündigen</strong> oder per E-Mail an <a href="mailto:kuendigung@moveup.de">kuendigung@moveup.de</a>.</p>
+
+            <h3>Außerordentliche Kündigung</h3>
+            <p>Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt. MoveUp kann das Konto bei schwerwiegenden Verstößen gegen diese AGB mit sofortiger Wirkung sperren oder löschen.</p>
+
+            <div class="highlight-box">
+              <p>💡 Nach der Kündigung hast du bis zum Ende der bezahlten Periode weiterhin Zugang zu allen Premium-Funktionen.</p>
+            </div>
+          </div>
+
+          <!-- 7. Widerrufsrecht -->
+          <div class="agb-section fade-in" id="s7">
+            <div class="agb-section-header">
+              <span class="agb-icon">↩️</span>
+              <h2>§ 7 Widerrufsrecht</h2>
+            </div>
+            <p>Als Verbraucher:in hast du das Recht, diesen Vertrag binnen <strong>14 Tagen</strong> ohne Angabe von Gründen zu widerrufen.</p>
+
+            <h3>Widerrufsfrist</h3>
+            <p>Die Widerrufsfrist beträgt 14 Tage ab dem Tag des Vertragsschlusses. Um dein Widerrufsrecht auszuüben, teile uns deine Entscheidung durch eine eindeutige Erklärung mit:</p>
+            <ul>
+              <li>Per E-Mail: <a href="mailto:widerruf@moveup.de">widerruf@moveup.de</a></li>
+              <li>Per Post: MoveUp GmbH, Königstraße 1, 70173 Stuttgart</li>
+            </ul>
+
+            <h3>Erlöschen des Widerrufsrechts</h3>
+            <p>Das Widerrufsrecht erlischt vorzeitig, wenn du ausdrücklich zustimmst, dass MoveUp vor Ablauf der Widerrufsfrist mit der Ausführung beginnt, und du zur Kenntnis nimmst, dass du mit Beginn der Ausführung dein Widerrufsrecht verlierst.</p>
+          </div>
+
+          <!-- 8. Nutzungspflichten -->
+          <div class="agb-section fade-in" id="s8">
+            <div class="agb-section-header">
+              <span class="agb-icon">✅</span>
+              <h2>§ 8 Nutzungspflichten & verbotene Handlungen</h2>
+            </div>
+            <p>Nutzer:innen verpflichten sich, die MoveUp-Plattform nur bestimmungsgemäß und im Einklang mit geltendem Recht zu nutzen. Folgende Handlungen sind ausdrücklich untersagt:</p>
+            <ul>
+              <li>Weitergabe von Zugangsdaten an Dritte</li>
+              <li>Verbreitung rechtswidriger, beleidigender oder diskriminierender Inhalte in der Community</li>
+              <li>Automatisiertes Auslesen von Inhalten (Scraping, Bots)</li>
+              <li>Reverse Engineering oder Manipulation der App</li>
+              <li>Nutzung der Plattform zu kommerziellen Zwecken ohne schriftliche Genehmigung</li>
+              <li>Verbreitung von Spam oder unerwünschter Werbung</li>
+            </ul>
+            <p>MoveUp behält sich bei Verstößen das Recht vor, das Konto ohne Erstattung zu sperren oder zu löschen.</p>
+          </div>
+
+          <!-- 9. Haftung -->
+          <div class="agb-section fade-in" id="s9">
+            <div class="agb-section-header">
+              <span class="agb-icon">⚖️</span>
+              <h2>§ 9 Haftungsbeschränkung</h2>
+            </div>
+            <p>MoveUp haftet unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie für Vorsatz und grobe Fahrlässigkeit.</p>
+            <p>Bei leichter Fahrlässigkeit haftet MoveUp nur bei Verletzung wesentlicher Vertragspflichten und auf den vertragstypisch vorhersehbaren Schaden begrenzt.</p>
+
+            <h3>Keine Haftung für</h3>
+            <ul>
+              <li>Gesundheitliche Folgen durch unsachgemäße Nutzung der Trainingsinhalte</li>
+              <li>Ausfälle durch höhere Gewalt oder technische Störungen Dritter</li>
+              <li>Inhalte Dritter in der Community</li>
+              <li>Datenverlust aufgrund von Handlungen des Nutzers</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>⚠️ Trainiere stets innerhalb deiner körperlichen Grenzen. Bei Vorerkrankungen bitte vor der Nutzung ärztlichen Rat einholen.</p>
+            </div>
+          </div>
+
+          <!-- 10. Änderungen -->
+          <div class="agb-section fade-in" id="s10">
+            <div class="agb-section-header">
+              <span class="agb-icon">🔄</span>
+              <h2>§ 10 Änderungen der AGB</h2>
+            </div>
+            <p>MoveUp behält sich vor, diese AGB mit einer Ankündigungsfrist von mindestens <strong>30 Tagen</strong> zu ändern. Nutzer:innen werden per E-Mail über Änderungen informiert.</p>
+            <p>Widersprichst du den geänderten AGB nicht innerhalb von 30 Tagen nach Zugang der Benachrichtigung, gelten die neuen AGB als akzeptiert. Auf dieses Widerspruchsrecht und die Rechtsfolgen des Schweigens wird in der Benachrichtigung gesondert hingewiesen.</p>
+            <p>Im Fall eines Widerspruchs ist MoveUp berechtigt, den Vertrag zum Zeitpunkt des Inkrafttretens der Änderungen zu kündigen.</p>
+          </div>
+
+          <!-- 11. Schlussbestimmungen -->
+          <div class="agb-section fade-in" id="s11">
+            <div class="agb-section-header">
+              <span class="agb-icon">📜</span>
+              <h2>§ 11 Schlussbestimmungen</h2>
+            </div>
+
+            <h3>Anwendbares Recht</h3>
+            <p>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Für Verbraucher:innen gelten die zwingenden Verbraucherschutzvorschriften des Landes, in dem sie ihren gewöhnlichen Aufenthalt haben.</p>
+
+            <h3>Gerichtsstand</h3>
+            <p>Gerichtsstand ist Stuttgart, sofern der Nutzer Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist.</p>
+
+            <h3>Salvatorische Klausel</h3>
+            <p>Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt. Die unwirksame Bestimmung wird durch eine wirksame ersetzt, die dem wirtschaftlichen Zweck der unwirksamen möglichst nahekommt.</p>
+
+            <div class="highlight-box">
+              <p>📬 Bei Fragen zu diesen AGB: <a href="mailto:info@moveup.de">info@moveup.de</a> · MoveUp GmbH, Königstraße 1, 70173 Stuttgart</p>
+            </div>
+          </div>
+
+          <div class="text-center mt-4 fade-in">
+            <a href="/MoveUp/index.html" class="btn-back">&#8592; Zurück zur Website</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row align-items-center gy-3">
+        <div class="col-12 col-md-4 text-center text-md-start">
+          <span style="font-size:1.3rem; font-weight:900;">Move<span style="color:var(--accent)">Up</span></span>
+          <div style="font-size:0.8rem; opacity:0.5; margin-top:0.25rem;">© 2025 MoveUp – Stuttgart</div>
+        </div>
+        <div class="col-12 col-md-8">
+          <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-4">
+            <a href="/MoveUp/index.html" class="footer-link">Startseite</a>
+            <a href="/MoveUp/Impressum.html" class="footer-link">Impressum</a>
+            <a href="/MoveUp/Datenschutz.html" class="footer-link">Datenschutz</a>
+            <a href="/MoveUp/AGB.html" class="footer-link" style="color:var(--accent);">AGB</a>
+            <a href="/MoveUp/Kontakt.html" class="footer-link">Kontakt</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
